@@ -10,22 +10,15 @@
     use Libs\Database\MySQL;
     use Libs\Database\UsersTable;
 
-    $faker = Faker::create();
-    
-    echo $faker->name . "<br><br>";
-    echo $faker->email . "<br><br>" ;
-    echo $faker->phoneNumber . "<br><br>" ;
-    echo $faker->address . "<br><br>";
+   $password = "haha";
+   $hash = password_hash($password, PASSWORD_BCRYPT);
 
-    Auth::check();
-    echo "<br><br>";
-
-    HTTP::redirect();
-    echo "<br><br>";
-
-    $sql = new MySQL;
-    $sql->connect();
-    echo "<br><br>";
-
-    $table = new UsersTable;
-    echo $table->insert();
+   echo $hash;
+?>
+  <br><br>
+<?php 
+   if(password_verify('haha', $hash)) {
+    echo 'Correct';
+   } else {
+    echo 'incor';
+   }

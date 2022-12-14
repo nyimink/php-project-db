@@ -25,6 +25,12 @@
                     </div>
                 <?php endif ?>
 
+                <?php if (isset($_GET['suspended'])) : ?>
+                    <div class="alert alert-danger">
+                        Your account is suspended.
+                    </div>
+                <?php endif ?>
+
                 <?php if (isset($_GET['incorrect'])) : ?>
                     <div class="alert alert-warning">
                         Incorrect email and password

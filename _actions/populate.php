@@ -11,13 +11,14 @@
 
     echo "starting...<br>";
 
-    for ($i=0; $i < 20; $i++) { 
+    for ($i=0; $i < 10; $i++) { 
         $data = [
             'name' => $faker->name,
             'email' => $faker->email,
             'phone' => $faker->phoneNumber,
             'address' => $faker->address,
             'password' => 'password',
+            'role_id' => $i < 5 ? rand(1, 3) : 1,
         ];
 
         $table->insert($data);

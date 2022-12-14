@@ -27,6 +27,11 @@
 
     if ($user) {
         session_start();
+
+        if ($table->suspended($user->id)) {
+            HTTP::redirect("/index.php", "suspended=1");
+        }
+
         $_SESSION['user'] = $user;
         HTTP::redirect("/profile.php");
     } else {

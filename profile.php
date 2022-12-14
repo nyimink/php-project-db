@@ -27,7 +27,11 @@
 </head>
 <body>
         <div class="container mt-5">
-            <h1 class="mb-3"><?= $user->name ?> (<?= $user->role ?>)</h1>
+            <h1 class="mb-3"><?= $user->name ?> 
+                <span class="fw-normal text-muted">
+                    (<?= $user->role ?>)
+                </span>
+            </h1>
 
             <?php if (isset($_GET['error'])) : ?>
                 <div class="alert alert-warning">
@@ -35,8 +39,8 @@
                 </div>
             <?php endif ?>
 
-            <?php if (file_exists('_actions/photos/profile.jpg')) : ?>
-                <img class="img-thumbnail mb-3" src="_actions/photos/profile.jpg" alt="Profile Picture" width="200">
+            <?php if ($user->photo) : ?>
+                <img src="_actions/photos/<?= $user->photo ?>" alt="Profile Photo" class="img-thumbnail mb-3" width="200">
             <?php endif ?>
 
             <form action="_actions/upload.php" method="post" enctype="multipart/form-data">
@@ -59,6 +63,7 @@
             </ul>
 
             <br>
+            <a href="admin.php">Manage Users</a>
             <a href="_actions/logout.php" class="text-danger">Logout</a>
 
 

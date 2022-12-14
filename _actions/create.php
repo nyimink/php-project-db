@@ -15,6 +15,7 @@
         'phone' => $_POST['phone'],
         'address' => $_POST['address'],
         'password' => md5($_POST['password']),
+        'role_id' => 1,
     ];
 
     $id = $table->insert($data);
